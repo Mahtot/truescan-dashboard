@@ -34,7 +34,6 @@ const LoginForm = () => {
             const res = await post<any>("/auth/login", data);
 
             // Save token to localStorage
-
             localStorage.setItem("token", res.data);
             console.log(res, res.data)
             navigateTo.push("/dashboard");
