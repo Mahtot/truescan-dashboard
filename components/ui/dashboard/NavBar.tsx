@@ -5,20 +5,23 @@ import Link from "next/link"
 import { useState } from "react"
 import { Menu, X, LogOut, SquareChevronRight } from "lucide-react"
 import Modal from "../Modal"
+import { useRouter } from "next/navigation"
 
 const NavBar = () => {
     const items = [
-        { name: "Dashboard", to: "dashboard" },
+        { name: "Dashboard", to: "" },
         { name: "Register Product", to: "register-product" },
         { name: "View products", to: "view-products" },
         { name: "Settings", to: "settings" }
     ]
 
+    const routeTo = useRouter()
     const [modal, setModal] = useState<boolean>(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     const handleClick = () => {
         localStorage.removeItem("token")
+        routeTo.push('/login')
     }
 
     const handleCancel = () => {
@@ -54,7 +57,7 @@ const NavBar = () => {
             </button>
 
             {/* Modal */}
-            {modal && <Modal message="Are you sure you want to logout?" handleClick={handleClick} handleCancel={handleCancel} />}
+            {modal && <Modal handleClick={handleClick} handleCancel={handleCancel} ><div> "Are you sure you want to logout?"</div></Modal>}
 
         </div>
     )
