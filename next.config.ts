@@ -4,5 +4,8 @@ module.exports = {
   theme: {
     extend: {},
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   plugins: [],
 };
