@@ -57,7 +57,7 @@ const NavBar = () => {
             </button>
 
             {/* Modal */}
-            {modal && <Modal handleClick={handleClick} handleCancel={handleCancel} ><div> "Are you sure you want to logout?"</div></Modal>}
+            {modal && <Modal handleClick={handleClick} handleCancel={handleCancel} ><div> Are you sure you want to logout?</div></Modal>}
 
         </div>
     )

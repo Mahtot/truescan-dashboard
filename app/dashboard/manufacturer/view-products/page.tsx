@@ -45,7 +45,7 @@ const ViewProduct = () => {
         };
 
         fetchProducts();
-    }, []);
+    }, [products]);
 
     // Handle search by serial number
     const submitHandle = async (e: React.FormEvent) => {
@@ -108,7 +108,7 @@ const ViewProduct = () => {
                         className="text-[#0c2f2d] hover:underline"
                     > Register your product?</Link></p>
             ) : (
-                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 gap-x-20">
                     {products.map((prod, idx) => (
                         <Product product={prod} key={idx} />
                     ))}

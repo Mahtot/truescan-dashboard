@@ -71,7 +71,7 @@ const RegisterProduct = () => {
     }
 
     return (
-        <div className="flex flex-col mx-auto">
+        <div className="flex flex-col mx-auto ">
             <h1 className="font-bold text-[#0c2f2d] mb-4 text-lg">Register New Product</h1>
             <form onSubmit={handleSubmit(submitHandle)} className="flex flex-col gap-4 md:w-[30vw]">
                 <div>
