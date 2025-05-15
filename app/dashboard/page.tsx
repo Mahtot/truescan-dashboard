@@ -20,7 +20,7 @@ export default function DashboardRedirectPage() {
         if (!user || !user.role) {
             router.replace("/login");
         } else if (user.role === "ADMIN") {
-            router.replace("/dashboard/admin/dashboard");
+            router.replace("/dashboard/admin/");
         } else if (user.role === "Manufacturer") {
             console.log(user)
 
