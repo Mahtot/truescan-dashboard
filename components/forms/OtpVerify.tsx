@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Loader from "../ui/Loader";
+import { Suspense } from 'react';
 
 const OtpVerify = () => {
     const searchParams = useSearchParams();
