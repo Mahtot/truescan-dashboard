@@ -10,6 +10,7 @@ import { protectedGet } from "@/lib/api";
 import Loader from "@/components/ui/Loader";
 import Product from "@/components/ui/dashboard/Product";
 import RegisterProduct from "./register-product/page";
+import useAuthGuard from "@/hooks/useAuthGuard";
 
 type Product = {
     name: string;
@@ -18,6 +19,8 @@ type Product = {
 };
 
 const ManufacturerDashboard = () => {
+    useAuthGuard("Manufacturer");
+
     const router = useRouter();
     const [products, setProducts] = useState<Product[]>([]);
     const [loadingProducts, setLoadingProducts] = useState(true);

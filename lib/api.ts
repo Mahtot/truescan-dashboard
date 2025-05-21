@@ -73,8 +73,14 @@ export async function protectedGet<T>(endpoint: string): Promise<T> {
   return res.json();
 }
 
-export async function deleteRequest<T>(endpoint: string): Promise<T> {
+export async function deleteRequest<T>(
+  endpoint: string
+): Promise<T | undefined> {
   const token = localStorage.getItem("token");
+
+  if (!token) {
+    throw new Error("No auth token found");
+  }
 
   const res = await fetch(`${BASE_URL}${endpoint}`, {
     method: "DELETE",
@@ -85,11 +91,13 @@ export async function deleteRequest<T>(endpoint: string): Promise<T> {
   });
 
   if (!res.ok) {
-    const error = await res.json().catch(() => ({}));
-    throw new Error(error.message || "API error");
+    const errorText = await res.text();
+    console.error("DELETE failed:", res.status, errorText);
+    throw new Error(errorText || "API error");
   }
 
-  return res.json();
+  const text = await res.text();
+  return text ? JSON.parse(text) : undefined;
 }
 
 export async function put<T>(endpoint: string, data: any): Promise<T> {

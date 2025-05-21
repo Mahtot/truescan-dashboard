@@ -34,7 +34,7 @@ const Product = ({ product }: ProductProps) => {
     const handleDelete = async () => {
         setLoadingDelete(true);
         try {
-            const res = await deleteRequest<string>(`/products/${serialNumber}`);
+            const res = await deleteRequest<any>(`/products/${serialNumber}`);
             setDeleteRes(res);
             alert("Product deleted successfully!")
         } catch (err: any) {
