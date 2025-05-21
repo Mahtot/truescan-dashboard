@@ -52,6 +52,13 @@ const ManufacturerDashboard = () => {
         fetchProducts();
     }, [products]);
 
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (!token) {
+            router.push('/login');
+        }
+    }, []);
+
     const totalProducts = products.length;
     const lastProduct = products[products.length - 1];
 
