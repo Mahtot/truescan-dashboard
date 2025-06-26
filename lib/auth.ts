@@ -7,6 +7,9 @@ export interface JwtPayload {
   exp: number;
 }
 
+
+
+
 export const getUserFromToken = (token: string): JwtPayload | null => {
   try {
     return jwtDecode<JwtPayload>(token);
