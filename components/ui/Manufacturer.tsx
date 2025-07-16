@@ -12,7 +12,7 @@ const Manufacturer = () => {
 
                 {/* CTA Button */}
                 <a
-                    href="https://mellifluous-cupcake-4c152d.netlify.app/signup"
+                    href="https://truescan-dashboard.vercel.app/signup"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
